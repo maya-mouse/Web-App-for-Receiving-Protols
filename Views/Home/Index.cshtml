@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NetworkingReferenceBasics.Models.AdapterModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+   
+ 
+    <h3>Characterstics network interfaces on your device :</h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Network Interface</th>
+                <th>Dns Suffix</th>
+                <th>Dns Enabled</th>
+                <th>Dynamic Dns Enabled</th>
+                <th>Interface Type</th>
+                <th>SupportingIp4</th>
+                <th>SupportingIp6</th>
+                <th>Multicasting</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Description</td>
+                    <td>@item.DnsSuffix</td>
+                    <td>@item.IsDnsEnabled</td>
+                    <td>@item.IsDynamicDnsEnabled</td>
+                    <td>@item.InterfaceType</td>
+                    <td>@item.SuppotingIp4</td>
+                    <td>@item.SuppotingIp6</td>
+                     <td>@item.Multicast</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div style="color: red">
+*Wireless interfaces often receive a significant amount of network traffic because they serve as the primary or default network connection for many modern devices. This is due to the ubiquity and convenience of Wi-Fi networks in homes, offices,
+and public spaces. Unless a device is actively connected via a wired Ethernet cable, its wireless interface is the active pathway for all incoming and outgoing internet and local network communication. Therefore, any application or service requiring 
+network connectivity will inherently send and receive packets through this active wireless connection. 
+        <p>That's why we use this interface in our application</p>
+    </div>
+  </div>

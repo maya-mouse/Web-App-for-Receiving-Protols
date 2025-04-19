@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NetworkingReferenceBasics.Models.EthernetModel>
+@{
+    ViewData["Title"] = "EthernetPackets";
+}
+<h3>Ethernet packets recieved from Wireless Interface</h3>
+<form method="get" asp-controller="Home" asp-action="EthernetPackets">
+    <input type="hidden" name="value" value="true" />
+    <button type="submit">Receive Ethernet protocols again</button>
+</form>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Source Hardware Address</th>
+            <th>Destination Hardware Address</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        { 
+                <tr>
+                <td>@item.SourceHardwareAddress</td>
+                <td>@item.DestinationHardwareAddress</td>
+                <td>@item.Type</td>
+            </tr>
+        }
+    </tbody>
+</table>

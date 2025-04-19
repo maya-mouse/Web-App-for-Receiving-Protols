@@ -1,0 +1,27 @@
+﻿@model IEnumerable<NetworkingReferenceBasics.Models.UdpModel>
+@{
+    ViewData["Title"] = "UDPPackets";
+}
+<h3>Udp packets recieved  from Wireless Interface</h3>
+<form method="get" asp-controller="Home" asp-action="UDPPackets">
+    <input type="hidden" name="value" value="true" />
+    <button type="submit">Receive udp protocols again</button>
+</form>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Source Port</th>
+            <th>Destination Port</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        { 
+                <tr>
+                <td>@item.SourcePort</td>
+                 <td>@item.DestinationPort</td>
+            </tr>
+        }
+    </tbody>
+</table>

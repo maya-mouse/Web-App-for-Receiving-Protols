@@ -1,0 +1,30 @@
+﻿@model IEnumerable<NetworkingReferenceBasics.Models.TcpModel>
+@{
+    ViewData["Title"] = "TCPPackets";
+}
+
+<h3>TCP packets recieved  from Wireless Interface</h3>
+<form method="get" asp-controller="Home" asp-action="TCPPackets">
+    <input type="hidden" name="value" value="true" />
+    <button type="submit">Receive tcp protocols again</button>
+</form>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Source Port</th>
+            <th>Destination Port</th>
+            <th>Flags</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        { 
+                <tr>
+                <td>@item.SourcePort</td>
+                 <td>@item.DestinationPort</td>
+                <td>@item.Flags</td>
+            </tr>
+        }
+    </tbody>
+</table>

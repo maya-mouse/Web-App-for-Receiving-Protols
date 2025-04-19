@@ -1,0 +1,31 @@
+﻿@model IEnumerable<NetworkingReferenceBasics.Models.IpModel>
+@{
+    ViewData["Title"] = "IPPackets";
+}
+<h3>IP packets recieved  from Wireless Interface</h3>
+<form method="get" asp-controller="Home" asp-action="IPPackets">
+    <input type="hidden" name="value" value="true" />
+    <button type="submit">Receive ip protocols again</button>
+</form>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Source Address</th>
+            <th>Destination Address</th>
+            <th>Header LEnght</th>
+            <th>Time to Live</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        { 
+                <tr>
+                <td>@item.SourceAddress</td>
+                 <td>@item.DestinationAddress</td>
+                <td>@item.HeaderLenght</td>
+                <td>@item.TimeToLive</td>
+            </tr>
+        }
+    </tbody>
+</table>
