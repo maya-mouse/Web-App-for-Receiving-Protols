@@ -1,0 +1,56 @@
+html {
+  font-size: 14px;
+  font-family:'Cascadia Code';
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.styled-table {
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin: 20px 0;
+    min-width: 400px;
+}
+
+    .styled-table thead tr {
+        background-color: rgb(10,154, 254);
+        font-size: 18px;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 2px solid #dddddd;
+    }
+button {
+    background-color: rgb(10,154, 254);
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    border-radius :revert;
+}
+
