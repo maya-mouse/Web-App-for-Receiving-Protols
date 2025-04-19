@@ -149,9 +149,13 @@ namespace NetworkingReferenceBasics.Controllers
             var rawPacket = e.GetPacket();
             var packet = Packet.ParsePacket(rawPacket.LinkLayerType, rawPacket.Data);
 
+            if (packet is null) return;
+
+
             if (type == "PacketDotNet.EthernetPacket")
             {
                 EthernetPacket ethernetPacket = packet.Extract<EthernetPacket>();
+                if (ethernetPacket is null) return;
                 EthernetModel ethernetModel = new EthernetModel
                 {
                     DestinationHardwareAddress = ethernetPacket.DestinationHardwareAddress.ToString(),
@@ -164,6 +168,7 @@ namespace NetworkingReferenceBasics.Controllers
             else if (type == "PacketDotNet.IPPacket")
             {
                 IPPacket ipPacket = packet.Extract<IPPacket>();
+                if (ipPacket is null) return;
                 IpModel ipModel = new IpModel
                 {
                     SourceAddress = ipPacket.SourceAddress.ToString(),
@@ -177,6 +182,7 @@ namespace NetworkingReferenceBasics.Controllers
             else if (type == "PacketDotNet.TcpPacket")
             {
                 TcpPacket tcpPacket = packet.Extract<TcpPacket>();
+                if (tcpPacket is null) return;
                 TcpModel tcpModel = new TcpModel
                 {
                     SourcePort = tcpPacket.SourcePort.ToString(),
@@ -189,6 +195,7 @@ namespace NetworkingReferenceBasics.Controllers
             else if (type == "PacketDotNet.UdpPacket")
             {
                 UdpPacket udpPacket = packet.Extract<UdpPacket>();
+                if (udpPacket is null) return;
                 UdpModel udpModel = new UdpModel
                 {
                     SourcePort = udpPacket.SourcePort.ToString(),
